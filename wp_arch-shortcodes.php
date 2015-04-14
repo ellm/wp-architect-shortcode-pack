@@ -35,12 +35,15 @@ if ( ! class_exists( 'ShortCodePackClass' ) ) {
 	class ShortCodePackClass {
 		//  Initialize data that is going to be used throughout the class
 		public function __construct() {
-			add_action( 'wp_enqueue_scripts', array( $this, 'wp_arch_sc_scripts_and_styles_init' ) );
+			if ( !is_admin() ) :
+				add_action( 'wp_enqueue_scripts', array( $this, 'wp_arch_sc_scripts_and_styles_init' ) );
+			endif;
 			$this->wp_arch_sc_load_includes();
 		}
 
 		function wp_arch_sc_scripts_and_styles_init() {
 			wp_enqueue_style( 'wp_arch_short_styles', plugin_dir_url( __FILE__ ) . 'styles/styles.min.css', array(), null, 'all' );
+			wp_enqueue_script( 'wp_arch_short_scripts', plugin_dir_url( __FILE__ ) . 'scripts/scripts.min.js', array('jquery'), null, true );
 		}
 
 		private function wp_arch_sc_load_includes() {
