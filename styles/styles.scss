@@ -5,3 +5,8 @@
 @import "mixins";
 @import "grid";
 @import "featherlight";
+
+// Accordion
+.accordion .ui-accordion-header {
+	margin-bottom: 0; /*We don't want white space beneath the accordion header*/
+}

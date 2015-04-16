@@ -4,8 +4,21 @@ if ( ! class_exists( 'UtilityClass' ) ) {
 	class UtilityClass {
 		
 		public function __construct() {
+			add_filter( 'the_content', array( $this, 'wp_arch_add_sc_content_filter' ) );
 			add_shortcode( 'email', array( $this, 'wpcodex_hide_email_shortcode' ) );
 			add_shortcode( 'lightbox', array( $this, 'wp_arch_lightbox_img_shortcode' ) );
+		}
+
+		// Remove empty p tags for within shortcodes
+		// https://gist.github.com/bitfade/4555047
+		function wp_arch_add_sc_content_filter($content) {
+			// array of custom shortcodes requiring the fix
+			$block = join("|",array("col","col-wrap","accordions","accordion-title","accordion-block"));
+			// opening tag
+			$rep = preg_replace("/(<p>)?\[($block)(\s[^\]]+)?\](<\/p>|<br \/>)?/","[$2$3]",$content);
+			// closing tag
+			$rep = preg_replace("/(<p>)?\[\/($block)](<\/p>|<br \/>)?/","[/$2]",$rep);
+			return $rep;
 		}
 
 		/**

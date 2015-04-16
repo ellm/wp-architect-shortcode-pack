@@ -53,6 +53,25 @@ if ( ! class_exists( 'AdminClass' ) ) {
 				<p><strong>Email Anti-Spam MailTo Link</strong></p>
 				<p>Converts email addresses characters to HTML entities to block spam bots.</p>
 <pre>[email]info@abc.com[/email]</pre>
+<hr>
+<p><strong>Accordion</strong></p>
+<p>Creates an accordion</p>
+<pre>
+[accordions]
+	[accordion-title]Test 1[/accordion-title]
+	[accordion-block]Test 1[/accordion-block]
+	[accordion-title]Test 2[/accordion-title]
+	[accordion-block]Test 2[/accordion-block]
+	[accordion-title]Test 3[/accordion-title]
+	[accordion-block]Test 3[/accordion-block]
+[/accordions]
+</pre>
+<hr>
+<p><strong>Lightbox</strong></p>
+<p>Creates a lightbox overlay</p>
+<pre>
+[lightbox url="/path/to/local/file.jpg"]Text or Image[/lightbox]
+</pre>
 
 		    </div>
 		    <?php 

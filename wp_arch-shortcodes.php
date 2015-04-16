@@ -43,13 +43,15 @@ if ( ! class_exists( 'ShortCodePackClass' ) ) {
 
 		function wp_arch_sc_scripts_and_styles_init() {
 			wp_enqueue_style( 'wp_arch_short_styles', plugin_dir_url( __FILE__ ) . 'styles/styles.min.css', array(), null, 'all' );
-			wp_enqueue_script( 'wp_arch_short_scripts', plugin_dir_url( __FILE__ ) . 'scripts/scripts.min.js', array('jquery'), null, true );
+			wp_enqueue_style('wp_arch_accord_styles', '//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/smoothness/jquery-ui.min.css', array(), null, 'screen');
+			wp_enqueue_script( 'wp_arch_short_scripts', plugin_dir_url( __FILE__ ) . 'scripts/scripts.min.js', array('jquery','jquery-ui-accordion'), null, true );
 		}
 
 		private function wp_arch_sc_load_includes() {
-			require_once plugin_dir_path( __FILE__ ) . 'includes/shortcode-pack-admin.php';
-			require_once plugin_dir_path( __FILE__ ) . 'includes/shortcode-pack-grids.php';
 			require_once plugin_dir_path( __FILE__ ) . 'includes/shortcode-pack-utility.php';
+			require_once plugin_dir_path( __FILE__ ) . 'includes/shortcode-pack-admin.php';
+			require_once plugin_dir_path( __FILE__ ) . 'includes/shortcode-pack-accordion.php';
+			require_once plugin_dir_path( __FILE__ ) . 'includes/shortcode-pack-grids.php';
 		}
 	}
 	new ShortCodePackClass;
