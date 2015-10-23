@@ -37,7 +37,7 @@ if ( ! class_exists( 'TabsClass' ) ) {
                 </li>
             ';
 
-            $this->_tabs_divs.= '<div id="'.$id.'">'.wpautop($content).'</div>';
+            $this->_tabs_divs.= '<div id="'.$id.'">'.do_shortcode(wpautop($content)).'</div>';
 
             return $output;
         }
