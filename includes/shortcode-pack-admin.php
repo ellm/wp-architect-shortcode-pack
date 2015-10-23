@@ -16,6 +16,23 @@ if ( ! class_exists( 'AdminClass' ) ) {
 		    ?>
 		    <div class="wrap">
 		        <h2>Shortcode Documentation</h2>
+		        <h3 class="title">Tabs</h3>
+		        <p>Used to create tabs</p>
+<pre>[tabs]
+
+[tab id="1" title="Title of Tab 1"]
+
+[/tab]
+
+[tab id="2" title="Title of Tab 2"]
+
+[/tab]
+
+[tab id="3" title="Title of Tab 3"]
+
+[/tab]
+
+[/tabs]</pre>
 		        <h3 class="title">Columns and Grids</h3>
 		        <p>Used to create layouts</p>
 		        <p><strong>Six-Column Grid</strong></p>
